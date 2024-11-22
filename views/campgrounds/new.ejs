@@ -1,0 +1,60 @@
+<% layout('layouts/boilerplate') %>
+<div class="grid">
+  <h1 class="text-center">New Campground</h1>
+  <div class="col-6 offset-3">
+    <form action="/campgrounds" method="post" class="needs-validation" enctype="multipart/form-data" novalidate >
+      <div class="mb-3">
+        <label class="form-label" for="title">Title</label>
+        <input class="form-control" type="text" name="campground[title]" id="title" required
+        />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Please enter the title!</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="location">Location</label>
+        <input
+          class="form-control"
+          type="text"
+          name="campground[location]"
+          id="location"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Please enter the location!</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="image">Image</label>
+        <input type="file" id="image" name="image" class="form-control" placeholder="Choose image(s).." multiple>
+        <div class="invalid-feedback">Please upload atleast one image!</div>
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text">$</span>
+        <input
+          type="text"
+          class="form-control"
+          aria-label="Amount (to the nearest dollar)"
+          placeholder="Campground Price"
+          name="campground[price]"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Please enter the price!</div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="description">Description</label>
+        <textarea
+          name="campground[description]"
+          id="description"
+          class="form-control"
+          required
+        ></textarea>
+        <div class="invalid-feedback">Please enter the description!</div>
+      </div>
+      <button class="btn btn-success mt-3 mb-3">Add Campground</button>
+    </form>
+    <a href="/campgrounds">All Campground</a>
+  </div>
+</div>
+
+

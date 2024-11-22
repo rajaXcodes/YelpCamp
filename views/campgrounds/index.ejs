@@ -1,0 +1,39 @@
+<% layout('layouts/boilerplate.ejs') %>
+
+<div id="cluster-map"  class="mb-3"> </div>
+
+<h1>All campgrounds</h1>
+<% for(let campground of campgrounds){ %>
+  <div class="card mb-3" >
+    <div class="row g-0">
+      <div class="col-md-4">
+        <%if(campground.images.length) {%>
+        <img class="img-fluid" alt="" src="<%=campground.images[0].url%>">
+        <% }else {%>
+        <img class="img-fluid" alt=""
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTClgBPQfuswJuEGpN55B6qc9x2Y7dE9Dv4CK0adwtcg0X1mifiTJpmOkFQXbU4Uqsi25g&usqp=CAU">
+        <% } %>
+    </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"><%=campground.title %></h5>
+          <p class="card-text"><%=campground.description %></p>
+          <p class="card-text"><i class="bold"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
+          </svg>  <%=campground.location %></i> </p>         
+          
+          <a href="/campgrounds/<%=campground._id  %>" class="btn btn-primary">Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<% } %>
+
+<script>
+  const maptilerApiKey = '<%- process.env.MAPTILER_API_KEY %>';
+  //we are passing the data like this so it has same matched as it wanted in 
+  const campgrounds = { features: <%- JSON.stringify(campgrounds) %>}
+</script>
+
+<script src="/javascripts/clusterMap.js"></script>
