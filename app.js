@@ -20,15 +20,21 @@ const reviewRoutes = require('./routes/reviews');
 // Connect to MongoDB
 const MongoStore = require('connect-mongo');
 
-const dbUrl =  'mongodb://localhost:27017/yelp-camp';
+// const dbUrl =  'mongodb://localhost:27017/yelp-camp';
 
-mongoose.connect(dbUrl);
+const dbURL = process.env.DB_URL;
+
+mongoose.connect(dbURL);
+
+// mongoose.connect(dbUrl);
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {
-    console.log("Database connected");
+  console.log("Database connected");
 });
+
+
 
 
 const app = express();
@@ -42,10 +48,10 @@ app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 const store = MongoStore.create({
-  mongoUrl: dbUrl,
+  mongoUrl: dbURL,
   touchAfter: 24 * 60 * 60,
   crypto: {
-      secret: 'thisshouldbeabettersecret!'
+    secret: 'thisshouldbeabettersecret!'
   }
 });
 
