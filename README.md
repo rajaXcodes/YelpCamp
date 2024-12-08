@@ -2,7 +2,7 @@
  YelpCamp is a full-fledged website for posting, viewing, and rating campgrounds, featuring integrated maps for location display. It includes user authentication (login, signup, logout) and allows users to add new campgrounds, edit listings, and rate them. The app offers a user-friendly interface for managing and exploring campgrounds.
 
 #Demo (deployed using render) :
-https://yelpcamp-ymtb.onrender.com/campgrounds
+https://yelpcamp-ymtb.onrender.com
 
 # Screen Shot
 ![Screenshot 2024-10-12 165443](https://github.com/user-attachments/assets/3ba67e53-6175-4377-b019-85be61c633d4)
