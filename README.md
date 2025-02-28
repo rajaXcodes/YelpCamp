@@ -39,7 +39,7 @@
 
 ### 1️⃣ Clone the repo:  
 ```bash
-git clone https://github.com/yourusername/YelpCamp.git
+git clone https://github.com/rajaXcodes/YelpCamp.git
 cd YelpCamp
 ```
 
